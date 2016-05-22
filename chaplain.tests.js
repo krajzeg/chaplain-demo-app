@@ -1,7 +1,9 @@
-module.exports = {
-  app: require('./app')(),
-  tests: [
-    {name: 'zombie-html', url: '/html'},
-    {name: '3-paragraphs-json', url: '/json/3'}
-  ]
-};
+suite('bacon', function() {
+  var testApp = require('./app')();
+
+  config({app: testApp});
+
+  test('zombie-html', {url: '/html'});
+  test('3-paragraphs-json', {url: '/json/3'});
+});
+
