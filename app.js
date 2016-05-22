@@ -12,17 +12,21 @@ module.exports = function() {
   app.set('view engine', 'html');
   app.set('views', path.join(__dirname, 'views'));
 
+  app.use('/public', express.static('public'));
+
   // ============== serving in various formats
   var data = yaml.safeLoad(fs.readFileSync(
     __dirname + '/data/bacon-ipsum.yaml', 'utf8'
   ));
 
-  app.get('/html', function(req, res) {
-    res.render('zombie.html');
+  app.get('/', function(req, res) {
+    res.render('main.html', {
+      paragraphs: data.paragraphs
+    });
   });
 
-  app.get('/json/:paragraphs', function(req, res) {
-    var requestedParagraphs = parseInt(req.params.paragraphs);
+  app.get('/json/:paragraphs?', function(req, res) {
+    var requestedParagraphs = parseInt(req.params.paragraphs || "3");
     var paras = data.paragraphs.slice(0, requestedParagraphs);
     res.json({
       paragraphs: paras,

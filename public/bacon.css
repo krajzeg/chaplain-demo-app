@@ -1,0 +1,38 @@
+body {
+  font-family: Roboto, sans-serif;
+}
+
+header {
+  text-align: center;
+}
+
+h1, h2 {
+  color: #f33;
+  text-shadow: #333 0 1px;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+.logo {
+  margin: auto;
+  width: 10em;
+  height: 10em;
+  box-shadow: 0 0.3em 0.1em rgba(32,0,0,0.2),
+    inset 0 0.5em 2em rgba(32,0,0,0.2);
+  border-radius: 100%;
+  overflow: hidden;
+
+  background: #fcc;
+  border: 0.2em solid #c44;
+}
+
+.logo > img {
+  width: 100%;
+  height: auto;
+  margin-top: 3em;
+}
+
+.content {
+  margin: 2em auto;
+  max-width: 40rem;
+}
